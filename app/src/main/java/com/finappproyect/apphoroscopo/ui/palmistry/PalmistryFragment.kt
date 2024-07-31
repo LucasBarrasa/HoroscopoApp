@@ -1,4 +1,4 @@
-package com.finappproyect.apphoroscopo.ui.horoscopo
+package com.finappproyect.apphoroscopo.ui.palmistry
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -6,12 +6,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.finappproyect.apphoroscopo.R
-import com.finappproyect.apphoroscopo.databinding.FragmentHoroscopoBinding
+import com.finappproyect.apphoroscopo.databinding.FragmentPalmistryBinding
 
+class PalmistryFragment : Fragment() {
 
-class HoroscopoFragment : Fragment() {
-
-    private var _binding: FragmentHoroscopoBinding? = null
+    private var _binding: FragmentPalmistryBinding? = null
     private val binding get() = _binding!!
 
     override fun onCreateView(
@@ -19,7 +18,7 @@ class HoroscopoFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         // Inflate the layout for this fragment
-        _binding = FragmentHoroscopoBinding.inflate(layoutInflater, container, false)
+        _binding = FragmentPalmistryBinding.inflate(layoutInflater, container, false)
         return binding.root
     }
 
