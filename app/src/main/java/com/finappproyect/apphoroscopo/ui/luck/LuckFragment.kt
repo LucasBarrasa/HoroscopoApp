@@ -1,13 +1,11 @@
 package com.finappproyect.apphoroscopo.ui.luck
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.finappproyect.apphoroscopo.R
+import androidx.fragment.app.Fragment
 import com.finappproyect.apphoroscopo.databinding.FragmentLuckBinding
-
 
 class LuckFragment : Fragment() {
 
