@@ -7,7 +7,9 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.ViewModel
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.finappproyect.apphoroscopo.databinding.FragmentHoroscopoBinding
+import com.finappproyect.apphoroscopo.ui.horoscopo.adapters.HoroscopoAdapter
 import dagger.hilt.android.AndroidEntryPoint
 
 
@@ -19,6 +21,8 @@ class HoroscopoFragment : Fragment() {
     private var _binding: FragmentHoroscopoBinding? = null
     private val binding get() = _binding!!
 
+    private lateinit var horoscopoAdapter: HoroscopoAdapter
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         initUI()
@@ -26,10 +30,20 @@ class HoroscopoFragment : Fragment() {
 
     private fun initUI() {
         initUIState()
+        initList()
+    }
+
+    private fun initList() {
+        horoscopoAdapter = HoroscopoAdapter()
+        binding.rvSignosHoroscopo.apply {
+            layoutManager = LinearLayoutManager(context)
+            adapter = horoscopoAdapter
+        }
+
     }
 
     private fun initUIState() {
-         
+
     }
 
 
