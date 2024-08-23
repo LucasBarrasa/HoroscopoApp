@@ -9,6 +9,11 @@ import com.finappproyect.apphoroscopo.domain.model.HoroscopeInfo
 class HoroscopoAdapter(private var signo: List<HoroscopeInfo> = emptyList()) :
     RecyclerView.Adapter<HoroscopoViewHolder>() {
 
+    fun updateList (listSignos: List<HoroscopeInfo>){
+        this.signo = listSignos
+
+    }
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): HoroscopoViewHolder {
         return HoroscopoViewHolder(
             LayoutInflater.from(parent.context)
