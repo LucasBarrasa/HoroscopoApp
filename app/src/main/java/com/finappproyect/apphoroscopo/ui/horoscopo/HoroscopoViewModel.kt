@@ -1,6 +1,7 @@
 package com.finappproyect.apphoroscopo.ui.horoscopo
 
 import androidx.lifecycle.ViewModel
+import com.finappproyect.apphoroscopo.data.providers.HoroscopeProvider
 import com.finappproyect.apphoroscopo.domain.model.HoroscopeInfo
 import com.finappproyect.apphoroscopo.domain.model.HoroscopeInfo.Aquarius
 import com.finappproyect.apphoroscopo.domain.model.HoroscopeInfo.Aries
@@ -20,27 +21,13 @@ import kotlinx.coroutines.flow.StateFlow
 import javax.inject.Inject
 
 @HiltViewModel
-class HoroscopoViewModel @Inject constructor() : ViewModel() {
+class HoroscopoViewModel @Inject constructor(horoscopoProvider: HoroscopeProvider) : ViewModel(){
 
-    private var _horoscope = MutableStateFlow<List<HoroscopeInfo>>(emptyList())
-    val horoscope: StateFlow<List<HoroscopeInfo>> = _horoscope
+    private var _horoscopo = MutableStateFlow<List<HoroscopeInfo>>(emptyList())
+    val horoscopo: StateFlow<List<HoroscopeInfo>> = _horoscopo
 
     init {
-        _horoscope.value = listOf(
-            Aries,
-            Taurus,
-            Gemini,
-            Cancer,
-            Leo,
-            Virgo,
-            Libra,
-            Scorpio,
-            Sagittarius,
-            Capricorn,
-            Aquarius,
-            Pisces
-        )
+        _horoscopo.value = horoscopoProvider.getHoroscope()
     }
-
 
 }
