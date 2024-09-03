@@ -10,20 +10,20 @@ class HoroscopoViewHolder(view: View) : RecyclerView.ViewHolder(view) {
 
     private val binding = ItemHoroscopoBinding.bind(view)
 
-    fun render(itemSigno: HoroscopeInfo, onItemSelected: (HoroscopeInfo) -> Unit) {
+    fun render(itemSigno: HoroscopeInfo, onSignoSelected:(HoroscopeInfo)->Unit) {
         val context = binding.root.context
 
         binding.ivHoroscopeImg.setImageResource(itemSigno.imgSigno)
         binding.tvNameSigno.text = context.getString(itemSigno.nameSigno)
 
         binding.root.setOnClickListener {
-            animationSelection(binding.ivHoroscopeImg, newLambda = { onItemSelected(itemSigno) })
+            animationRotationSelection(binding.ivHoroscopeImg, newLambda = {onSignoSelected(itemSigno)})
+
         }
 
     }
 
-
-    private fun animationSelection(view: View, newLambda: () -> Unit) {
+    private fun animationRotationSelection(view: View, newLambda:()->Unit) {
         view.animate().apply {
             duration = 500
             interpolator = LinearInterpolator()
@@ -31,7 +31,7 @@ class HoroscopoViewHolder(view: View) : RecyclerView.ViewHolder(view) {
             withEndAction { newLambda() }
             start()
         }
-    }
 
+    }
 
 }

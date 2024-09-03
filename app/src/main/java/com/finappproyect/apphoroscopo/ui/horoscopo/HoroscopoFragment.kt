@@ -10,6 +10,7 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import com.finappproyect.apphoroscopo.databinding.FragmentHoroscopoBinding
 import com.finappproyect.apphoroscopo.ui.horoscopo.adapters.HoroscopoAdapter
@@ -48,8 +49,10 @@ class HoroscopoFragment : Fragment() {
     }
 
     private fun initList() {
-        horoscopoAdapter = HoroscopoAdapter(onItemSelected = {
-            Toast.makeText(context, getString(it.nameSigno), Toast.LENGTH_LONG).show()
+        horoscopoAdapter = HoroscopoAdapter(onSignoSelected = {
+            findNavController().navigate(
+                HoroscopoFragmentDirections.actionHoroscopoFragmentToHoroscopoDetail()
+            )
         })
         binding.rvSignosHoroscopo.layoutManager = GridLayoutManager(context, 2)
         binding.rvSignosHoroscopo.adapter = horoscopoAdapter
